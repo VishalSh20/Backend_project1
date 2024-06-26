@@ -1,17 +1,7 @@
 import dotenv from "dotenv";
-dotenv.config()
-// require('dotenv').config();
-import { connectDB,connectionInstance } from "./db/index.js";
-import express from "express";
+dotenv.config();  // require('dotenv').config();
 
-console.log("Ab connect krunga with",process.env.MONGODB_URI);
+import {connectDB} from "./db/index.js";
+
 connectDB();
 
-const app = express();
-app.get('/',(req,res)=>{
-    res.send("Server is ready");
-})
-
-app.listen(process.env.PORT,()=>{
-    console.log("Listening on PORT ",process.env.PORT);
-})
