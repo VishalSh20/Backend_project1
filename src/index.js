@@ -1,8 +1,8 @@
+import {config} from "dotenv";
+config();
 import { app } from "./app.js";
-import dotenv from "dotenv";
-dotenv.config();  // require('dotenv').config();
-
 import {connectDB} from "./db/index.js";
+import { log } from "console";
 
 connectDB()
 .then(
@@ -12,3 +12,4 @@ connectDB()
 )
 .catch(() => console.error("Database Connection Failed"))
 
+app.post("/api/v1/check",(req,res)=>res.json(req.body));
